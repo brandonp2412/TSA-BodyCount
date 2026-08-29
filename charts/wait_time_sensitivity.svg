@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+<title id="title">Sensitivity: Every Extra Minute Scales Linearly</title>
+<desc id="desc">2024 screening volume held fixed at 904 million</desc>
+<rect width="1200" height="720" rx="24" fill="#07111f"/>
+<defs><linearGradient id="panel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#102236"/><stop offset="1" stop-color="#091522"/></linearGradient></defs>
+<text x="60" y="68" fill="#f8fafc" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="38" font-weight="800">Sensitivity: Every Extra Minute Scales Linearly</text>
+<text x="60" y="102" fill="#9fb3c8" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="18">2024 screening volume held fixed at 904 million</text>
+<line x1="60" y1="126" x2="1140" y2="126" stroke="#24364a"/>
+<line x1="100" y1="535.0" x2="1125" y2="535.0" stroke="#24364a" stroke-dasharray="5 7"/>
+<text x="82.0" y="541.0" fill="#9fb3c8" text-anchor="end" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="14" font-weight="500">0</text>
+<line x1="100" y1="467.7" x2="1125" y2="467.7" stroke="#24364a" stroke-dasharray="5 7"/>
+<text x="82.0" y="473.7" fill="#9fb3c8" text-anchor="end" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="14" font-weight="500">100</text>
+<line x1="100" y1="400.5" x2="1125" y2="400.5" stroke="#24364a" stroke-dasharray="5 7"/>
+<text x="82.0" y="406.5" fill="#9fb3c8" text-anchor="end" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="14" font-weight="500">200</text>
+<line x1="100" y1="333.2" x2="1125" y2="333.2" stroke="#24364a" stroke-dasharray="5 7"/>
+<text x="82.0" y="339.2" fill="#9fb3c8" text-anchor="end" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="14" font-weight="500">300</text>
+<line x1="100" y1="265.9" x2="1125" y2="265.9" stroke="#24364a" stroke-dasharray="5 7"/>
+<text x="82.0" y="271.9" fill="#9fb3c8" text-anchor="end" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="14" font-weight="500">400</text>
+<line x1="100" y1="198.6" x2="1125" y2="198.6" stroke="#24364a" stroke-dasharray="5 7"/>
+<text x="82.0" y="204.6" fill="#9fb3c8" text-anchor="end" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="14" font-weight="500">500</text>
+<text x="100.0" y="567.0" fill="#9fb3c8" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="14" font-weight="500">0</text>
+<text x="305.0" y="567.0" fill="#9fb3c8" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="14" font-weight="500">5</text>
+<text x="510.0" y="567.0" fill="#9fb3c8" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="14" font-weight="500">10</text>
+<text x="715.0" y="567.0" fill="#9fb3c8" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="14" font-weight="500">15</text>
+<text x="920.0" y="567.0" fill="#9fb3c8" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="14" font-weight="500">20</text>
+<text x="1125.0" y="567.0" fill="#9fb3c8" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="14" font-weight="500">25</text>
+<polyline points="100.0,535.0 141.0,520.4 182.0,505.7 223.0,491.1 264.0,476.5 305.0,461.8 346.0,447.2 387.0,432.5 428.0,417.9 469.0,403.3 510.0,388.6 551.0,374.0 592.0,359.4 633.0,344.7 674.0,330.1 715.0,315.5 756.0,300.8 797.0,286.2 838.0,271.5 879.0,256.9 920.0,242.3 961.0,227.6 1002.0,213.0 1043.0,198.4 1084.0,183.7 1125.0,169.1" fill="none" stroke="#53a7ff" stroke-width="5" stroke-linecap="round"/>
+<circle cx="436.2" cy="415.0" r="8" fill="#53a7ff" stroke="#f8fafc" stroke-width="2"/>
+<text x="436.2" y="399.0" fill="#f8fafc" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="13" font-weight="700">8.2m → 178</text>
+<circle cx="464.9" cy="404.7" r="8" fill="#4899e8" stroke="#f8fafc" stroke-width="2"/>
+<text x="464.9" y="431.7" fill="#f8fafc" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="13" font-weight="700">8.9m → 194</text>
+<circle cx="485.4" cy="397.4" r="8" fill="#2dd4bf" stroke="#f8fafc" stroke-width="2"/>
+<text x="485.4" y="381.4" fill="#f8fafc" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="13" font-weight="700">9.4m → 205</text>
+<circle cx="633.0" cy="344.7" r="8" fill="#f5b942" stroke="#f8fafc" stroke-width="2"/>
+<text x="633.0" y="371.7" fill="#f8fafc" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="13" font-weight="700">13.0m → 283</text>
+<circle cx="936.4" cy="236.4" r="8" fill="#f05252" stroke="#f8fafc" stroke-width="2"/>
+<text x="936.4" y="220.4" fill="#f8fafc" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="13" font-weight="700">20.4m → 444</text>
+<text x="612.5" y="597.0" fill="#9fb3c8" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="15" font-weight="500">Average checkpoint wait (minutes)</text>
+<text x="25.0" y="360.0" fill="#9fb3c8" text-anchor="start" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="14" font-weight="500">79-year lifetime-equivalents/year</text>
+<line x1="60" y1="640" x2="1140" y2="640" stroke="#24364a"/>
+<text x="60.0" y="674.0" fill="#9fb3c8" text-anchor="start" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="14" font-weight="500">This chart is arithmetic sensitivity, not a causal claim about TSA</text>
+<text x="60.0" y="696.0" fill="#9fb3c8" text-anchor="start" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="14" font-weight="500">Inputs: 904M annual screenings; 79.0-year U.S. life expectancy</text>
+</svg>
