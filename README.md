@@ -1,18 +1,18 @@
 # TSA Body Count
 
-Who wastes more human life: the TSA or aviation terrorists?
+Who burns more human life: the TSA or aviation terrorists?
 
-Take the time Americans spend standing in TSA lines, divide it by a **79-year human life**, and compare it with people killed in **U.S. attacks against airports and aircraft**.
+Take the time Americans spend standing in TSA lines, divide it by a **79-year human life**, and compare it with people killed in **U.S. terrorism involving airports, aircraft, or aviation hijackings**.
 
 Using TSA's own **13-minute measured wait**, 2024 passenger volume burns **283 lives per year** in line.
 
-Aviation terrorists killed **16 people from 1970–2000**. Then 9/11 killed **2,977**. Average all of that across 1970–2001 and aviation terrorists killed **93.53 people per year**.
+START's Global Terrorism Database aviation subset records **17 deaths across 30 covered pre-TSA years**. That is **0.57 aviation-terrorist deaths per year**.
 
-**TSA: 3.02× more human life lost — even with 9/11 included.**
+**TSA burns 499× more human life.**
 
-Before 9/11, the aviation-terrorist rate was only **0.52 deaths per year**. Against that rate, TSA's 13-minute line burns **548× more human life**.
+Throw 9/11 into the terrorist average too: **2,994 deaths across 31 covered years = 96.58 deaths/year**. TSA still burns **2.93× more human life**.
 
-Using the **20.4-minute passenger-reported wait**, TSA burns **444 lives per year — 4.75× the aviation-terrorist rate even with 9/11 included.**
+Using the **20.4-minute passenger-reported wait**, TSA burns **444 lives per year — 783× the pre-TSA aviation-terrorist rate and 4.60× the rate with 9/11 included.**
 
 ## TSA lives burned each year
 
@@ -22,13 +22,13 @@ The year under each bar is the year of the federal wait-time measurement. Every 
 
 ## TSA vs. aviation terrorists
 
-Blue is human life burned waiting in TSA lines. Red is people killed by aviation terrorists, with 9/11 included.
+**WAITING IN TSA** vs. **KILLED BY TERRORISTS**. Airports, aircraft, and aviation hijackings only.
 
 ![TSA versus aviation terrorists](charts/tsa_vs_terrorists.svg)
 
 ## TSA wins at every wait-time measurement
 
-Every bar uses the aviation-only terrorist rate with 9/11 included.
+Every bar uses the pre-TSA aviation-terrorist rate: **17 deaths / 30 GTD-covered years = 0.57 deaths/year**.
 
 ![TSA wins at every wait time](charts/how_many_times_worse.svg)
 
@@ -40,54 +40,46 @@ At 904 million screenings per year, every extra minute in line burns **21.8 full
 
 ## The numbers
 
-| Wait measurement | Wait | TSA lives / year | vs. aviation terrorists incl. 9/11 | vs. aviation terrorists before 9/11 |
+| Wait measurement | Wait | TSA lives / year | vs. pre-TSA aviation terrorists | vs. aviation terrorists incl. 9/11 |
 |---|---:|---:|---:|---:|
-| GAO 2006 | 8.2 min | 178 | 1.91× | 346× |
-| GAO 2005 | 8.9 min | 194 | 2.07× | 375× |
-| GAO 2004 | 9.4 min | 205 | 2.19× | 396× |
-| TSA 2003–04 | 13.0 min | 283 | **3.02×** | **548×** |
-| Passengers 2003–04 | 20.4 min | 444 | **4.75×** | **860×** |
+| GAO 2006 | 8.2 min | 178 | 315× | 1.85× |
+| GAO 2005 | 8.9 min | 194 | 342× | 2.00× |
+| GAO 2004 | 9.4 min | 205 | 361× | 2.12× |
+| TSA 2003–04 | 13.0 min | 283 | **499×** | **2.93×** |
+| Passengers 2003–04 | 20.4 min | 444 | **783×** | **4.60×** |
 
 ## Aviation terrorist body count
 
-START's Global Terrorism Database counts **68 U.S. attacks against airports and aircraft from 1970–1999**:
+The checked-in GTD-derived subset is [`data/aviation_events.csv`](data/aviation_events.csv). The filter keeps U.S. incidents from 1970–2001 when any GTD target is **Airports & Aircraft** / **Airports & Airlines**, plus aviation-specific hijackings so aircraft hijackings cannot disappear behind another primary target category.
 
-- 1970s: **43 attacks**
-- 1980s: **23 attacks**
-- 1990s: **2 attacks**
+The five lethal pre-TSA aviation events are:
 
-The attacks that killed people before 9/11 were:
-
-| Year | Attack | Deaths |
+| Year | GTD event | Deaths |
 |---|---|---:|
 | 1974 | Los Angeles International Airport bombing | 3 |
 | 1975 | LaGuardia Airport bombing | 11 |
+| 1976 | TWA Flight 355 hijacking / Grand Central bomb | 1 |
 | 1981 | Pan Am terminal bombing at JFK | 1 |
 | 1982 | Pan Am Flight 830 bombing | 1 |
-| | **Total, 1970–2000** | **16** |
+| | **Total** | **17** |
 
-So the pre-9/11 aviation-terrorist rate is:
+GTD has no event-level records for 1993, so the pre-TSA rate uses the **30 GTD-covered years from 1970–2000**:
 
 ```text
-16 / 31 years = 0.516 deaths per year
+17 / 30 = 0.5667 deaths per year
 ```
 
-Give terrorists the full 9/11 body count as well:
+Add the **2,977 people killed on 9/11** and extend through 2001:
 
 ```text
-(16 + 2,977) / 32 years = 93.531 deaths per year
+(17 + 2,977) / 31 = 96.5806 deaths per year
 ```
 
-That **93.53 deaths/year** number is the terrorist side of the main comparison.
-
-## Formula
+The 13-minute TSA line then lands at:
 
 ```text
-annual_wait_hours = annual_screenings × wait_minutes / 60
-annual_wait_years = annual_wait_hours / (24 × 365.2425)
-tsa_lives_burned = annual_wait_years / 79
-aviation_terrorist_rate = (16 + 2,977) / 32
-ratio_vs_terrorists = tsa_lives_burned / aviation_terrorist_rate
+282.84 / 0.5667 = 499.13×
+282.84 / 96.5806 = 2.93×   # even with 9/11
 ```
 
 ## Reproduce everything
@@ -96,30 +88,40 @@ Python 3.10+. No third-party packages.
 
 ```bash
 make all
-```
-
-This regenerates the results CSV and every chart from [`data/inputs.csv`](data/inputs.csv) and [`data/aviation_deaths.csv`](data/aviation_deaths.csv).
-
-```bash
 make check
 ```
 
-`make check` regenerates everything and fails if the committed results or charts differ. GitHub Actions runs the same check on every push and pull request.
+`make all` regenerates the results CSV and every chart from [`data/inputs.csv`](data/inputs.csv) and [`data/aviation_events.csv`](data/aviation_events.csv). `make check` fails if committed results or charts differ. GitHub Actions runs the same reproducibility check on every push and pull request.
+
+The GTD-derived event file can be rebuilt from the pinned 2018 START/Kaggle snapshot:
+
+```bash
+python3 scripts/extract_aviation_events.py globalterrorismdb_0718dist.csv > data/aviation_events.csv
+```
+
+The extractor pins the source file SHA-256 and contains the exact aviation filter.
 
 ## Primary sources
 
-- [TSA — 2024 screening volume](https://www.tsa.gov/news/press/releases/2025/01/15/tsa-intercepts-6678-firearms-airport-security-checkpoints-2024)
+- [START — Global Terrorism Database](https://www.start.umd.edu/data-tools/GTD)
+- [START — GTD codebook](https://www.start.umd.edu/sites/default/files/2024-10/Codebook.pdf)
+- [START — GTD FAQ, including the missing 1993 event-level data](https://www.start.umd.edu/gtd-faqs)
+- [START — Patterns of Terrorism in the United States, 1970–2013](https://www.start.umd.edu/pubs/START_TEVUS_GTDPatternsofTerrorisminUS1970-2013_Oct2014.pdf)
+- [START/DHS — Terrorist Attacks Targeting Critical Infrastructure in the United States, 1970–2015](https://www.start.umd.edu/pubs/START_DHS_GTD_Targeting%20Critical%20Infrastructure%20in%20the%20US_June2016.pdf)
+- [Kaggle — START GTD 2018 snapshot metadata](https://www.kaggle.com/START-UMD/gtd/metadata)
+- [Archive.org — pinned `globalterrorismdb_0718dist.csv` copy used by the extractor](https://archive.org/download/globalterrorismdb_0718dist/globalterrorismdb_0718dist.csv)
+- [U.S. Court of Appeals — TWA Flight 355 hijacking facts](https://law.justia.com/cases/federal/appellate-courts/F2/549/252/342112/)
+- [TSA — 2024 screening volume](https://www.tsa.gov/sites/default/files/tsa_2024_yir_by_the_numbers.pdf)
 - [CDC/NCHS — Mortality in the United States, 2024](https://www.cdc.gov/nchs/products/databriefs/db548.htm)
 - [BTS — Air Passenger Opinions on Security Screening Procedures](https://www.bts.gov/archive/publications/airline_passenger_opinions_on_security_screening_procedures/entire)
 - [GAO-07-299 — TSA average peak wait times](https://www.gao.gov/products/gao-07-299)
-- [START — Patterns of Terrorism in the United States, 1970–2013](https://www.start.umd.edu/pubs/START_TEVUS_GTDPatternsofTerrorisminUS1970-2013_Oct2014.pdf)
-- [START/DHS — Targeting Critical Infrastructure in the United States](https://www.start.umd.edu/pubs/START_DHS_GTD_Targeting%20Critical%20Infrastructure%20in%20the%20US_June2016.pdf)
 - [U.S. Congress — 2,977 victims killed on September 11, 2001](https://www.govinfo.gov/content/pkg/CHRG-116hhrg39837/pdf/CHRG-116hhrg39837.pdf)
 
 ## Repository layout
 
-- `data/inputs.csv` — source values and links
-- `data/aviation_deaths.csv` — every lethal pre-9/11 U.S. airport/aircraft attack used in the denominator
+- `data/inputs.csv` — TSA, life-expectancy, GTD-coverage, and 9/11 source values
+- `data/aviation_events.csv` — checked-in GTD-derived aviation incident subset
+- `scripts/extract_aviation_events.py` — deterministic GTD aviation filter pinned to the source snapshot
 - `model.py` — shared calculations
 - `analysis.py` — generates `results/annualized_2024.csv`
 - `generate_charts.py` — generates every SVG using only Python's standard library

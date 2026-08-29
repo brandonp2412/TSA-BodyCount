@@ -6,7 +6,5 @@ wait_gao_fy2005,8.9,minutes_per_screening,FY2005,https://www.gao.gov/products/ga
 wait_gao_fy2004,9.4,minutes_per_screening,FY2004,https://www.gao.gov/products/gao-07-299,TSA average peak wait time across all airport categories.
 wait_tsa_2003_2004,13.0,minutes_per_screening,Dec2003-Nov2004,https://www.bts.gov/archive/publications/airline_passenger_opinions_on_security_screening_procedures/entire,TSA directly measured average peak queue wait.
 wait_bts_perceived_2003_2004,20.4,minutes_per_screening,Dec2003-Nov2004,https://www.bts.gov/archive/publications/airline_passenger_opinions_on_security_screening_procedures/entire,BTS Omnibus Household Survey mean self-reported wait.
-aviation_attacks_1970s,43,attacks,1970-1979,https://www.start.umd.edu/pubs/START_TEVUS_GTDPatternsofTerrorisminUS1970-2013_Oct2014.pdf,START GTD U.S. Airports & Aircraft target attacks.
-aviation_attacks_1980s,23,attacks,1980-1989,https://www.start.umd.edu/pubs/START_TEVUS_GTDPatternsofTerrorisminUS1970-2013_Oct2014.pdf,START GTD U.S. Airports & Aircraft target attacks.
-aviation_attacks_1990s,2,attacks,1990-1999,https://www.start.umd.edu/pubs/START_TEVUS_GTDPatternsofTerrorisminUS1970-2013_Oct2014.pdf,START GTD U.S. Airports & Aircraft target attacks.
+gtd_missing_event_year,1993,year,1993,https://www.start.umd.edu/gtd-faqs,START states that GTD event-level records for 1993 are missing.
 sept11_victims_2001,2977,deaths,2001-09-11,https://www.govinfo.gov/content/pkg/CHRG-116hhrg39837/pdf/CHRG-116hhrg39837.pdf,Congressional record count of victims killed in the September 11 attacks.

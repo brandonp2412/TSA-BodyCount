@@ -8,11 +8,22 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 INPUTS = ROOT / "data" / "inputs.csv"
-AVIATION_DEATHS = ROOT / "data" / "aviation_deaths.csv"
+AVIATION_EVENTS = ROOT / "data" / "aviation_events.csv"
 DAYS_PER_YEAR = 365.2425
-PRE_911_START_YEAR = 1970
-PRE_911_END_YEAR = 2000
+PRE_TSA_START_YEAR = 1970
+PRE_TSA_END_YEAR = 2000
 INCL_911_END_YEAR = 2001
+
+
+@dataclass(frozen=True)
+class AviationBaseline:
+    pre_tsa_deaths: float
+    pre_tsa_years: int
+    pre_tsa_rate: float
+    incl_911_deaths: float
+    incl_911_years: int
+    incl_911_rate: float
+    pre_tsa_event_count: int
 
 
 @dataclass(frozen=True)
@@ -25,7 +36,7 @@ class Scenario:
     wait_hours: float
     person_years: float
     lifetime_equivalents: float
-    ratio_aviation_pre_911: float
+    ratio_aviation_pre_tsa: float
     ratio_aviation_incl_911: float
 
 
@@ -34,8 +45,8 @@ def load_inputs() -> dict[str, float]:
         return {row["key"]: float(row["value"]) for row in csv.DictReader(handle)}
 
 
-def load_aviation_deaths() -> list[dict[str, str]]:
-    with AVIATION_DEATHS.open(newline="", encoding="utf-8") as handle:
+def load_aviation_events() -> list[dict[str, str]]:
+    with AVIATION_EVENTS.open(newline="", encoding="utf-8") as handle:
         return list(csv.DictReader(handle))
 
 
@@ -48,27 +59,51 @@ def lifetime_equivalents(
     return hours, person_years, equivalents
 
 
-def aviation_baselines(d: dict[str, float] | None = None) -> tuple[float, float, float]:
+def covered_gtd_years(end_year: int, d: dict[str, float] | None = None) -> list[int]:
     d = d or load_inputs()
-    pre_911_deaths = sum(int(row["deaths"]) for row in load_aviation_deaths())
-    pre_911_years = PRE_911_END_YEAR - PRE_911_START_YEAR + 1
-    incl_911_years = INCL_911_END_YEAR - PRE_911_START_YEAR + 1
-    pre_911_rate = pre_911_deaths / pre_911_years
-    incl_911_rate = (pre_911_deaths + d["sept11_victims_2001"]) / incl_911_years
-    return float(pre_911_deaths), pre_911_rate, incl_911_rate
+    missing_year = int(d["gtd_missing_event_year"])
+    return [
+        year
+        for year in range(PRE_TSA_START_YEAR, end_year + 1)
+        if year != missing_year
+    ]
 
 
-def aviation_attack_count(d: dict[str, float] | None = None) -> int:
+def aviation_baselines(d: dict[str, float] | None = None) -> AviationBaseline:
     d = d or load_inputs()
-    return int(d["aviation_attacks_1970s"] + d["aviation_attacks_1980s"] + d["aviation_attacks_1990s"])
+    events = load_aviation_events()
+    pre_tsa_events = [
+        row
+        for row in events
+        if PRE_TSA_START_YEAR <= int(row["year"]) <= PRE_TSA_END_YEAR
+    ]
+    pre_tsa_deaths = sum(
+        float(row["gtd_nkill"])
+        for row in pre_tsa_events
+        if row["gtd_nkill"].strip()
+    )
+    pre_tsa_years = len(covered_gtd_years(PRE_TSA_END_YEAR, d))
+    incl_911_years = len(covered_gtd_years(INCL_911_END_YEAR, d))
+    pre_tsa_rate = pre_tsa_deaths / pre_tsa_years
+    incl_911_deaths = pre_tsa_deaths + d["sept11_victims_2001"]
+    incl_911_rate = incl_911_deaths / incl_911_years
+    return AviationBaseline(
+        pre_tsa_deaths=pre_tsa_deaths,
+        pre_tsa_years=pre_tsa_years,
+        pre_tsa_rate=pre_tsa_rate,
+        incl_911_deaths=incl_911_deaths,
+        incl_911_years=incl_911_years,
+        incl_911_rate=incl_911_rate,
+        pre_tsa_event_count=len(pre_tsa_events),
+    )
 
 
 def scenarios(d: dict[str, float] | None = None) -> list[Scenario]:
     d = d or load_inputs()
     screenings = d["tsa_screenings_2024"]
     life_years = d["life_expectancy_us_2024"]
-    _, pre_rate, incl_rate = aviation_baselines(d)
-    defs = [
+    baseline = aviation_baselines(d)
+    definitions = [
         ("wait_gao_fy2006", "GAO FY2006 average peak", "GAO", "2006"),
         ("wait_gao_fy2005", "GAO FY2005 average peak", "GAO", "2005"),
         ("wait_gao_fy2004", "GAO FY2004 average peak", "GAO", "2004"),
@@ -76,9 +111,9 @@ def scenarios(d: dict[str, float] | None = None) -> list[Scenario]:
         ("wait_bts_perceived_2003_2004", "BTS traveler-reported Dec 2003–Nov 2004", "PASSENGERS", "2003–04"),
     ]
     rows: list[Scenario] = []
-    for key, label, short_label, year_label in defs:
+    for key, label, short_label, year_label in definitions:
         wait = d[key]
-        hours, years, equiv = lifetime_equivalents(screenings, wait, life_years)
+        hours, years, equivalents = lifetime_equivalents(screenings, wait, life_years)
         rows.append(
             Scenario(
                 key=key,
@@ -88,9 +123,9 @@ def scenarios(d: dict[str, float] | None = None) -> list[Scenario]:
                 wait_minutes=wait,
                 wait_hours=hours,
                 person_years=years,
-                lifetime_equivalents=equiv,
-                ratio_aviation_pre_911=equiv / pre_rate,
-                ratio_aviation_incl_911=equiv / incl_rate,
+                lifetime_equivalents=equivalents,
+                ratio_aviation_pre_tsa=equivalents / baseline.pre_tsa_rate,
+                ratio_aviation_incl_911=equivalents / baseline.incl_911_rate,
             )
         )
     return rows

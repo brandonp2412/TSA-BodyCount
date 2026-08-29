@@ -1,0 +1,52 @@
+eventid,year,month,day,state,city,attack_types,target_types,target,organization,gtd_nkill,filter_reason
+197009270001,1970,9,27,New York,New York City,Hijacking,Airports & Aircraft,United Arab Republic airliner,,0,airport_or_aircraft_target
+197011250001,1970,11,25,New York,New York City,Bombing/Explosion,Airports & Aircraft,Aeroflot Office,,0,airport_or_aircraft_target
+197109240004,1971,9,24,Michigan,Detroit,Hijacking,Airports & Aircraft,American Airlines Flight 124,American Airlines,0,airport_or_aircraft_target
+197206020002,1972,6,2,Washington,Seattle,Hijacking,Airports & Aircraft,Jet,Western Airlines,0,airport_or_aircraft_target
+197207310001,1972,7,31,Florida,Miami,Hijacking,Airports & Aircraft,Airline,Delta,0,airport_or_aircraft_target
+197303040005,1973,3,4,New York,New York City,Bombing/Explosion,Airports & Aircraft,Terminal Warehouse,El Al Airlines,0,airport_or_aircraft_target
+197405010003,1974,5,1,New York,New York City,Bombing/Explosion,Airports & Aircraft,"Airline, JFK Airport",Alitalia,0,airport_or_aircraft_target
+197408060004,1974,8,6,California,Los Angeles,Bombing/Explosion,Airports & Aircraft,Los Angeles International Airport,Airport,3,airport_or_aircraft_target
+197510200002,1975,10,20,Florida,Miami,Bombing/Explosion,Airports & Aircraft,Airline,Dominicana Airlines,0,airport_or_aircraft_target
+197511270002,1975,11,27,Florida,Miami,Bombing/Explosion,Airports & Aircraft,Bahamas Airline Acft,,0,airport_or_aircraft_target
+197512290003,1975,12,29,New York,New York City,Bombing/Explosion,Airports & Aircraft,La Guardia Terminal,,11,airport_or_aircraft_target
+197603080002,1976,3,8,New York,New York City,Bombing/Explosion,Airports & Aircraft,Aeroflot,,0,airport_or_aircraft_target
+197603080003,1976,3,8,New York,New York City,Bombing/Explosion,Airports & Aircraft,Czechoslovak Airlines,,0,airport_or_aircraft_target
+197606230004,1976,6,23,New York,New York City,Armed Assault,Airports & Aircraft,Pan Am vehicles,Kennedy Airport,0,airport_or_aircraft_target
+197607020009,1976,7,2,Massachusetts,Boston,Bombing/Explosion,Airports & Aircraft,Logan Airport,,0,airport_or_aircraft_target
+197609100005,1976,9,10,New York,New York City,Hijacking,Airports & Aircraft,B-727,TWA,1,airport_or_aircraft_target
+197702280002,1977,2,28,Puerto Rico,San Juan,Bombing/Explosion,Airports & Aircraft,Mexicana and Viasa Airline Offices,,0,airport_or_aircraft_target
+197705010002,1977,5,1,California,Salinas,Armed Assault,Airports & Aircraft,"helicopters, 5, at airport",,0,airport_or_aircraft_target
+197705270001,1977,5,27,Florida,Fort Lauderdale,Bombing/Explosion,Airports & Aircraft,Mackey International Airlines,,0,airport_or_aircraft_target
+197708140003,1977,8,14,Florida,Miami,Bombing/Explosion,Airports & Aircraft,Aircraft,,0,airport_or_aircraft_target
+197712230012,1977,12,23,Florida,Miami,Bombing/Explosion,Airports & Aircraft,Venezula Airline Office,,0,airport_or_aircraft_target
+197805220004,1978,5,22,New York,New York City,Bombing/Explosion,Airports & Aircraft,John F. Kennedy airport,U.S. Airports & Airlines,0,airport_or_aircraft_target
+197805220005,1978,5,22,New York,New York City,Bombing/Explosion,Airports & Aircraft,LaGuardia airport,U.S. Airports & Airlines,0,airport_or_aircraft_target
+197805220006,1978,5,22,New Jersey,Newark,Bombing/Explosion,Airports & Aircraft,Newark airport,U.S. Airports & Airlines,0,airport_or_aircraft_target
+197903250002,1979,3,25,New York,New York City,Bombing/Explosion,Airports & Aircraft,TWA (Kennedy Airport),,0,airport_or_aircraft_target
+197904030002,1979,4,3,Massachusetts,Boston,Facility/Infrastructure Attack,Airports & Aircraft,Logan International Airport,,0,airport_or_aircraft_target
+197906200008,1979,6,20,New York,New York City,Hijacking,Airports & Aircraft,B-727,American,0,airport_or_aircraft_target
+197911150001,1979,11,15,Illinois,Chicago,Bombing/Explosion,Airports & Aircraft,American Airlines Boeing 727 Airliner,,0,airport_or_aircraft_target
+198001220016,1980,1,22,California,Los Angeles,Bombing/Explosion,Airports & Aircraft,China Airlines Luggage Area,,0,airport_or_aircraft_target
+198001250007,1980,1,25,Georgia,Atlanta,Hijacking,Airports & Aircraft,,"Delta Airlines, Lockheed LA-1011",0,airport_or_aircraft_target
+198006100006,1980,6,10,Illinois,Lake Forest,Bombing/Explosion,Airports & Aircraft,"Percy Wood, President",United Airlines,0,airport_or_aircraft_target
+198007140001,1980,7,14,Puerto Rico,Juana Diaz,Bombing/Explosion,Airports & Aircraft,Air traffic control station for Ponce Airport,,0,airport_or_aircraft_target
+198007140003,1980,7,14,Puerto Rico,Vega Baja,Bombing/Explosion,Airports & Aircraft,Air control signal tower/ and generator,,,airport_or_aircraft_target
+198007140004,1980,7,14,Puerto Rico,Dorado,Bombing/Explosion,Airports & Aircraft,Air control signal tower,,,airport_or_aircraft_target
+198007140005,1980,7,14,Puerto Rico,Mayaguez,Bombing/Explosion,Airports & Aircraft,Air traffic control station for Mayaguez Airport,,0,airport_or_aircraft_target
+198105160004,1981,5,16,New York,New York City,Bombing/Explosion,Airports & Aircraft,Pan American Airlines Terminal at Kennedy Int'l Airport,,1,airport_or_aircraft_target
+198105290009,1981,5,29,Oregon,Toledo,Facility/Infrastructure Attack,Airports & Aircraft | Business,1977 Hiller 12-E helicopter owned by Western Helicopter Service Inc.,Western Helicopter Service Inc.,0,airport_or_aircraft_target
+198205300002,1982,5,30,California,Los Angeles,Bombing/Explosion,Airports & Aircraft,"Air Canada Freight Terminal, Los Angeles International Airport",,0,airport_or_aircraft_target
+198207040001,1982,7,4,New York,New York City,Bombing/Explosion,Airports & Aircraft,"Yugoslave Airlines office, 4 West 51st",,0,airport_or_aircraft_target
+198208110007,1982,8,11,Hawaii,Honolulu,Bombing/Explosion,Airports & Aircraft | Private Citizens & Property,Pan Am Flight 830,Pan Am,1,airport_or_aircraft_target
+198302150008,1983,2,15,Texas,Killeen,Hijacking,Airports & Aircraft,"Rio Airways Flight 252 departing from Killeen, Texas, en route to Dallas",Rio Airways,0,airport_or_aircraft_target
+198302170002,1983,2,17,District of Columbia,Washington,Bombing/Explosion,Airports & Aircraft,Aeroflot Soviet Airlines building,,0,airport_or_aircraft_target
+198403250008,1984,3,25,New York,New York City,Hijacking,Airports & Aircraft,Piedmont Flight Airlines,Piedmont,0,airport_or_aircraft_target
+198403280017,1984,3,28,Louisiana,New Orleans,Hijacking,Airports & Aircraft,,Boeing 727 (Delta Flight 357),0,airport_or_aircraft_target
+198604280005,1986,4,28,New York,New York City,Facility/Infrastructure Attack,Airports & Aircraft,Pan Am Loading Dock,Pan Am Airlines,,airport_or_aircraft_target
+199510130001,1995,10,13,New York,New York City,Bombing/Explosion,Airports & Aircraft,Airport,La Guardie Airport,0,airport_or_aircraft_target
+199707260001,1997,7,26,California,San Francisco,Bombing/Explosion,Airports & Aircraft,airport,SFIA,0,airport_or_aircraft_target
+200109110004,2001,9,11,New York,New York City,Hijacking | Armed Assault,Private Citizens & Property | Business | Airports & Aircraft,Passengers and crew members on American Airlines Flight 11 and the people working in the North Tower of the World Trade Center in New York City,Civilians,1384,airport_or_aircraft_target
+200109110005,2001,9,11,New York,New York City,Hijacking | Armed Assault,Private Citizens & Property | Business | Airports & Aircraft,Passengers and crew members on United Airlines Flight 175 and the people working in the South Tower of the World Trade Center in New York City,Civilians,1383,airport_or_aircraft_target
+200109110006,2001,9,11,Virginia,Arlington,Hijacking | Armed Assault,Government (General) | Military | Airports & Aircraft,Passengers and crew members on American Airlines Flight 77 and Pentagon personnel,Civilians,190,airport_or_aircraft_target
+200109110007,2001,9,11,Pennsylvania,Shanksville,Hijacking | Armed Assault,Private Citizens & Property | Government (General) | Airports & Aircraft,Airline passengers and crew members on board American Airlines Flight 93 and personnel at the intended Capitol Building target,Civilians,44,airport_or_aircraft_target

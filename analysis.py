@@ -6,7 +6,7 @@ from __future__ import annotations
 import csv
 from pathlib import Path
 
-from model import ROOT, aviation_attack_count, aviation_baselines, load_inputs, scenarios
+from model import ROOT, aviation_baselines, load_inputs, scenarios
 
 OUTPUT = ROOT / "results" / "annualized_2024.csv"
 
@@ -24,8 +24,8 @@ def write_results() -> None:
                 "wait_hours",
                 "person_years",
                 "lifetime_equivalents_79y",
-                "ratio_vs_aviation_1970_2000",
-                "ratio_vs_aviation_1970_2001_incl_911",
+                "ratio_vs_pre_tsa_aviation",
+                "ratio_vs_aviation_incl_911",
             ]
         )
         for row in rows:
@@ -36,7 +36,7 @@ def write_results() -> None:
                     f"{row.wait_hours:.1f}",
                     f"{row.person_years:.2f}",
                     f"{row.lifetime_equivalents:.2f}",
-                    f"{row.ratio_aviation_pre_911:.3f}",
+                    f"{row.ratio_aviation_pre_tsa:.3f}",
                     f"{row.ratio_aviation_incl_911:.3f}",
                 ]
             )
@@ -44,13 +44,22 @@ def write_results() -> None:
 
 def main() -> None:
     d = load_inputs()
-    deaths, pre_rate, incl_rate = aviation_baselines(d)
+    baseline = aviation_baselines(d)
     write_results()
     print(f"2024 TSA screenings: {d['tsa_screenings_2024']:,.0f}")
     print(f"U.S. life expectancy: {d['life_expectancy_us_2024']:.1f} years")
-    print(f"U.S. airport/aircraft attacks in 1970–1999: {aviation_attack_count(d)}")
-    print(f"Aviation terrorism, 1970–2000: {deaths:.0f} deaths; {pre_rate:.4f} deaths/year")
-    print(f"Aviation terrorism, 1970–2001 incl. 9/11: {incl_rate:.4f} deaths/year")
+    print(
+        f"Pre-TSA aviation GTD events: {baseline.pre_tsa_event_count} events; "
+        f"{baseline.pre_tsa_deaths:.0f} deaths"
+    )
+    print(
+        f"Pre-TSA aviation rate: {baseline.pre_tsa_rate:.4f} deaths/year "
+        f"across {baseline.pre_tsa_years} GTD-covered years"
+    )
+    print(
+        f"Aviation rate including 9/11: {baseline.incl_911_rate:.4f} deaths/year "
+        f"across {baseline.incl_911_years} GTD-covered years"
+    )
     try:
         shown = OUTPUT.relative_to(Path.cwd())
     except ValueError:
