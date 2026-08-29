@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+<title id="title">TSA LIVES BURNED EACH YEAR</title>
+<desc id="desc">Each bar uses one federal wait-time measurement · 1 life = 79 years</desc>
+<rect width="1200" height="720" rx="24" fill="#07111f"/>
+<text x="60" y="70" fill="#f8fafc" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="40" font-weight="900">TSA LIVES BURNED EACH YEAR</text>
+<text x="60" y="106" fill="#9fb3c8" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="18" font-weight="600">Each bar uses one federal wait-time measurement · 1 life = 79 years</text>
+<line x1="60" y1="130" x2="1140" y2="130" stroke="#24364a"/>
+<line x1="95" y1="535.0" x2="1140" y2="535.0" stroke="#24364a" stroke-dasharray="5 7"/>
+<text x="80.0" y="540.0" fill="#9fb3c8" text-anchor="end" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="13" font-weight="500">0</text>
+<line x1="95" y1="461.0" x2="1140" y2="461.0" stroke="#24364a" stroke-dasharray="5 7"/>
+<text x="80.0" y="466.0" fill="#9fb3c8" text-anchor="end" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="13" font-weight="500">100</text>
+<line x1="95" y1="387.0" x2="1140" y2="387.0" stroke="#24364a" stroke-dasharray="5 7"/>
+<text x="80.0" y="392.0" fill="#9fb3c8" text-anchor="end" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="13" font-weight="500">200</text>
+<line x1="95" y1="313.0" x2="1140" y2="313.0" stroke="#24364a" stroke-dasharray="5 7"/>
+<text x="80.0" y="318.0" fill="#9fb3c8" text-anchor="end" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="13" font-weight="500">300</text>
+<line x1="95" y1="239.0" x2="1140" y2="239.0" stroke="#24364a" stroke-dasharray="5 7"/>
+<text x="80.0" y="244.0" fill="#9fb3c8" text-anchor="end" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="13" font-weight="500">400</text>
+<line x1="95" y1="165.0" x2="1140" y2="165.0" stroke="#24364a" stroke-dasharray="5 7"/>
+<text x="80.0" y="170.0" fill="#9fb3c8" text-anchor="end" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="13" font-weight="500">500</text>
+<rect x="137.5" y="403.0" width="124" height="132.0" rx="10" fill="#53a7ff"/>
+<text x="199.5" y="388.0" fill="#ffffff" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="28" font-weight="900">178</text>
+<text x="199.5" y="573.0" fill="#ffffff" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="27" font-weight="900">2006</text>
+<text x="199.5" y="599.0" fill="#9fb3c8" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="13" font-weight="700">8.2 min · GAO</text>
+<rect x="346.5" y="391.7" width="124" height="143.3" rx="10" fill="#53a7ff"/>
+<text x="408.5" y="376.7" fill="#ffffff" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="28" font-weight="900">194</text>
+<text x="408.5" y="573.0" fill="#ffffff" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="27" font-weight="900">2005</text>
+<text x="408.5" y="599.0" fill="#9fb3c8" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="13" font-weight="700">8.9 min · GAO</text>
+<rect x="555.5" y="383.7" width="124" height="151.3" rx="10" fill="#2dd4bf"/>
+<text x="617.5" y="368.7" fill="#ffffff" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="28" font-weight="900">205</text>
+<text x="617.5" y="573.0" fill="#ffffff" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="27" font-weight="900">2004</text>
+<text x="617.5" y="599.0" fill="#9fb3c8" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="13" font-weight="700">9.4 min · GAO</text>
+<rect x="764.5" y="325.7" width="124" height="209.3" rx="10" fill="#f5b942"/>
+<text x="826.5" y="310.7" fill="#ffffff" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="28" font-weight="900">283</text>
+<text x="826.5" y="573.0" fill="#ffffff" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="27" font-weight="900">2003–04</text>
+<text x="826.5" y="599.0" fill="#9fb3c8" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="13" font-weight="700">13.0 min · TSA</text>
+<rect x="973.5" y="206.6" width="124" height="328.4" rx="10" fill="#f05252"/>
+<text x="1035.5" y="191.6" fill="#ffffff" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="28" font-weight="900">444</text>
+<text x="1035.5" y="573.0" fill="#ffffff" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="27" font-weight="900">2003–04</text>
+<text x="1035.5" y="599.0" fill="#9fb3c8" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="13" font-weight="700">20.4 min · PASSENGERS</text>
+<line x1="60" y1="654" x2="1140" y2="654" stroke="#24364a"/>
+<text x="60.0" y="684.0" fill="#9fb3c8" text-anchor="start" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="13" font-weight="500">Sources: TSA 2024 volume · CDC 79-year lifespan · GAO/BTS wait times</text>
+</svg>
