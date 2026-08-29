@@ -1,0 +1,6 @@
+scenario,wait_min,wait_hours,person_years,lifetime_equivalents_79y,ratio_vs_1980_1999_deaths_per_year,ratio_vs_1980_2001_deaths_per_year
+GAO FY2006 average peak,8.2,123546666.7,14094.14,178.41,17.406,1.311
+GAO FY2005 average peak,8.9,134093333.3,15297.29,193.64,18.891,1.423
+GAO FY2004 average peak,9.4,141626666.7,16156.69,204.52,19.953,1.503
+TSA Dec 2003-Nov 2004 average peak,13.0,195866666.7,22344.36,282.84,27.594,2.079
+BTS traveler-reported Dec 2003-Nov 2004,20.4,307360000.0,35063.46,443.84,43.302,3.262
