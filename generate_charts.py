@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Generate deterministic SVG charts from data/inputs.csv."""
+"""Generate deterministic SVG charts from checked-in data."""
 
 from __future__ import annotations
 from html import escape
-from model import ROOT, baselines, lifetime_equivalents, load_inputs, scenarios
+from model import ROOT, aviation_baselines, lifetime_equivalents, load_inputs, scenarios
 
 OUT = ROOT / "charts"
 W, H = 1200, 720
@@ -19,7 +19,8 @@ def text(x, y, value, size=16, color=TEXT, anchor="start", weight=500):
 def svg_open(title, subtitle):
     return [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-labelledby="title desc">',
-        f'<title id="title">{escape(title)}</title>', f'<desc id="desc">{escape(subtitle)}</desc>',
+        f'<title id="title">{escape(title)}</title>',
+        f'<desc id="desc">{escape(subtitle)}</desc>',
         f'<rect width="{W}" height="{H}" rx="24" fill="{BG}"/>',
         f'<text x="60" y="70" fill="{TEXT}" font-family="{FONT}" font-size="40" font-weight="900">{escape(title)}</text>',
         f'<text x="60" y="106" fill="{MUTED}" font-family="{FONT}" font-size="18" font-weight="600">{escape(subtitle)}</text>',
@@ -50,43 +51,44 @@ def chart1():
 
 
 def chart2():
-    d=load_inputs(); rows=scenarios(d); pre, incl, _, _=baselines(d)
+    d=load_inputs(); rows=scenarios(d); _, pre_rate, incl_rate=aviation_baselines(d)
     tsa=next(r for r in rows if r.key=="wait_tsa_2003_2004")
-    s=svg_open("TSA VS. TERRORISTS", "Annual lives lost: waiting in TSA lines vs. terrorists killing at the pre-TSA rate")
+    s=svg_open("TSA VS. AVIATION TERRORISTS", "Annual human lives · terrorist side counts U.S. airports and aircraft only · 9/11 included")
     s += [
         f'<rect x="70" y="170" width="500" height="390" rx="22" fill="{PANEL}" stroke="{BLUE}" stroke-width="3"/>',
         f'<rect x="630" y="170" width="500" height="390" rx="22" fill="{PANEL}" stroke="{RED}" stroke-width="3"/>',
         text(320, 225, "WAITING IN TSA", 23, BLUE, "middle", 900),
-        text(880, 225, "KILLED BY TERRORISTS", 23, RED, "middle", 900),
+        text(880, 225, "AVIATION TERRORISTS", 23, RED, "middle", 900),
         text(320, 360, f"{tsa.lifetime_equivalents:.0f}", 108, WHITE, "middle", 950),
-        text(880, 360, f"{pre:.2f}", 108, WHITE, "middle", 950),
+        text(880, 360, f"{incl_rate:.2f}", 108, WHITE, "middle", 950),
         text(320, 405, "LIVES / YEAR", 23, MUTED, "middle", 800),
         text(880, 405, "DEATHS / YEAR", 23, MUTED, "middle", 800),
         text(320, 455, "13.0 min TSA-measured wait", 17, MUTED, "middle", 650),
-        text(880, 455, "1980–1999 FBI rate", 17, MUTED, "middle", 650),
-        f'<rect x="370" y="500" width="460" height="82" rx="18" fill="{GOLD}"/>',
-        text(600, 552, f"TSA: {tsa.ratio_pre_9_11:.1f}× MORE", 31, BG, "middle", 950),
-        text(600, 620, f"Even averaging 9/11 into every year: terrorists = {incl:.0f}/year", 16, GOLD, "middle", 800),
+        text(880, 455, "1970–2001 · 9/11 included", 17, MUTED, "middle", 650),
+        f'<rect x="365" y="500" width="470" height="82" rx="18" fill="{GOLD}"/>',
+        text(600, 552, f"TSA: {tsa.ratio_aviation_incl_911:.2f}× MORE", 31, BG, "middle", 950),
+        text(600, 620, f"Before 9/11: aviation terrorists = {pre_rate:.2f}/year · TSA = {tsa.ratio_aviation_pre_911:.0f}×", 16, GOLD, "middle", 800),
     ]
-    s += footer("Sources: TSA · CDC · BTS · FBI")
+    s += footer("Sources: TSA · CDC · BTS · START GTD · U.S. Congress 9/11 victim count")
     return "\n".join(s)
 
 
 def chart3():
-    d=load_inputs(); rows=scenarios(d); pre,_,_,_=baselines(d)
-    s=svg_open("HOW MANY TIMES WORSE IS TSA?", f"Lives burned waiting ÷ terrorists killed at the 1980–1999 rate ({pre:.2f}/year)")
-    left, top, right, bottom = 95, 170, 1140, 535; max_y=45
-    for tick in range(0, 46, 10):
+    d=load_inputs(); rows=scenarios(d); _,_,incl_rate=aviation_baselines(d)
+    s=svg_open("TSA WINS AT EVERY WAIT TIME", f"TSA lives burned ÷ aviation terrorist deaths/year · 9/11 included ({incl_rate:.2f}/year)")
+    left, top, right, bottom = 95, 170, 1140, 535; max_y=5.5
+    for tick in [0,1,2,3,4,5]:
         y=bottom-tick/max_y*(bottom-top)
         s += [f'<line x1="{left}" y1="{y:.1f}" x2="{right}" y2="{y:.1f}" stroke="{GRID}" stroke-dasharray="5 7"/>', text(left-15,y+5,f"{tick}×",13,MUTED,"end")]
     colors=[BLUE,BLUE,CYAN,GOLD,RED]; slot=(right-left)/len(rows)
     for i,row in enumerate(rows):
-        cx=left+slot*(i+.5); h=row.ratio_pre_9_11/max_y*(bottom-top); y=bottom-h
+        ratio=row.ratio_aviation_incl_911
+        cx=left+slot*(i+.5); h=ratio/max_y*(bottom-top); y=bottom-h
         s.append(f'<rect x="{cx-62:.1f}" y="{y:.1f}" width="124" height="{h:.1f}" rx="10" fill="{colors[i]}"/>')
-        s.append(text(cx,y-14,f"{row.ratio_pre_9_11:.1f}×",25,WHITE,"middle",900))
+        s.append(text(cx,y-14,f"{ratio:.2f}×",25,WHITE,"middle",900))
         s.append(text(cx,bottom+38,row.year_label,27,WHITE,"middle",900))
         s.append(text(cx,bottom+61,f"{row.wait_minutes:.1f} min · {row.short_label}",12,MUTED,"middle",700))
-    s += footer("Sources: TSA · CDC · GAO/BTS · FBI")
+    s += footer("Aviation terrorist rate = 16 pre-9/11 victims + 2,977 on 9/11, averaged across 1970–2001")
     return "\n".join(s)
 
 

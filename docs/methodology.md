@@ -2,12 +2,12 @@
 
 ## The question
 
-How much human life does TSA burn in airport lines, and how does that body count compare with terrorists?
+How much human life does TSA burn in airport lines, and how does that body count compare with **aviation terrorists**?
 
 The study measures two annual numbers:
 
 1. Human time spent waiting in TSA lines, converted into 79-year lives.
-2. People killed by terrorists per year using FBI pre-TSA history.
+2. People killed in U.S. terrorist attacks against airports and aircraft.
 
 ## TSA body count
 
@@ -24,7 +24,7 @@ Inputs:
 - TSA screened **904 million people in 2024**.
 - CDC/NCHS puts 2024 U.S. life expectancy at **79.0 years**.
 
-Every minute of average TSA wait therefore burns:
+Every minute of average TSA wait burns:
 
 ```text
 904,000,000 / 60 / 24 / 365.2425 / 79 = 21.7569 lives per year
@@ -51,60 +51,62 @@ BTS reports two measurements for December 2003 through November 2004:
 - TSA-measured average peak wait: **13.0 minutes**
 - Passenger-reported mean wait: **20.4 minutes**
 
-The charts keep each published measurement separate and label its year directly.
+## Aviation terrorist body count
 
-## Terrorist body count
+The terrorist side is restricted to START GTD's U.S. **Airports & Aircraft** target category.
 
-### 1980–1999
+START counts:
 
-FBI totals:
+- **43 attacks** in the 1970s
+- **23 attacks** in the 1980s
+- **2 attacks** in the 1990s
 
-- **327 incidents**
-- **205 deaths**
+That is **68 attacks** from 1970–1999.
 
-Annual rate:
+The lethal pre-9/11 aviation attacks used by the model are stored in `data/aviation_deaths.csv`:
 
-```text
-205 / 20 = 10.25 deaths per year
-```
+- 1974 Los Angeles International Airport bombing: **3 deaths**
+- 1975 LaGuardia Airport bombing: **11 deaths**
+- 1981 Pan Am terminal bombing at JFK: **1 death**
+- 1982 Pan Am Flight 830 bombing: **1 death**
 
-This is the main terrorist rate used for the TSA comparison.
-
-### Including 9/11
-
-FBI totals:
-
-- 1980–1999: **205 deaths**
-- 2000: **0 deaths**
-- 2001: **2,788 deaths**
-
-Total:
+Total through 2000:
 
 ```text
-2,993 / 22 = 136.05 deaths per year
+16 deaths / 31 years = 0.516129 deaths per year
 ```
 
-The FBI attributes **2,783 deaths** to 9/11. START reports that 9/11 caused **85% of U.S. terrorism deaths from 1970–2013**.
+## Including 9/11
 
-## TSA vs. terrorists
+The U.S. government count used here is **2,977 people killed on September 11, 2001**.
+
+Add that to the 16 earlier aviation-terrorism deaths and average the entire 1970–2001 period:
+
+```text
+(16 + 2,977) / 32 = 93.53125 deaths per year
+```
+
+This **93.53125 deaths/year** rate drives the main charts.
+
+## TSA vs. aviation terrorists
 
 Using TSA's 13.0-minute measured wait:
 
 ```text
-283.0 / 10.25 = 27.6×
+282.84 / 93.53125 = 3.024×
 ```
 
 Using the passenger-reported 20.4-minute wait:
 
 ```text
-443.8 / 10.25 = 43.3×
+443.84 / 93.53125 = 4.745×
 ```
 
-Including 9/11 in the terrorist annual rate:
+Against the pre-9/11 aviation rate:
 
 ```text
-283.0 / 136.05 = 2.08×
-443.8 / 136.05 = 3.26×
+282.84 / 0.516129 = 548.0×
+443.84 / 0.516129 = 859.9×
 ```
 
 ## Primary sources
@@ -113,6 +115,6 @@ Including 9/11 in the terrorist annual rate:
 - GAO FY2004–FY2006 wait times: https://www.gao.gov/products/gao-07-299
 - TSA 2024 screening volume: https://www.tsa.gov/sites/default/files/tsa_2024_yir_by_the_numbers.pdf
 - CDC/NCHS 2024 life expectancy: https://www.cdc.gov/nchs/products/databriefs/db548.htm
-- FBI 1980–1999 terrorism statistics: https://www.fbi.gov/file-repository/counterterrorism/stats-services-publications-terror_99.pdf/view
-- FBI 2000/2001 terrorism statistics: https://www.fbi.gov/file-repository/counterterrorism/stats-services-publications-terror-terror00_01.pdf/view
-- START U.S. terrorism patterns: https://www.start.umd.edu/pubs/START_TEVUS_GTDPatternsofTerrorisminUS1970-2013_Oct2014.pdf
+- START U.S. airport/aircraft attack counts: https://www.start.umd.edu/pubs/START_TEVUS_GTDPatternsofTerrorisminUS1970-2013_Oct2014.pdf
+- START/DHS lethal transportation attacks: https://www.start.umd.edu/pubs/START_DHS_GTD_Targeting%20Critical%20Infrastructure%20in%20the%20US_June2016.pdf
+- U.S. Congress 9/11 victim count: https://www.govinfo.gov/content/pkg/CHRG-116hhrg39837/pdf/CHRG-116hhrg39837.pdf
