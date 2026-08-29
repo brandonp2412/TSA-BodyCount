@@ -1,77 +1,89 @@
 # TSA Body Count
 
-A reproducible counterfactual study comparing the aggregate time Americans spend in TSA checkpoint queues with historical U.S. terrorism-fatality baselines.
+Who wastes more human life: the TSA or terrorists?
 
-The deliberately provocative unit is a **lifetime-equivalent of elapsed time**: total passenger-hours spent waiting divided by U.S. life expectancy. It is **not** a claim that queueing literally kills people.
+Take the time Americans spend standing in TSA lines, divide it by a **79-year human life**, and compare the result with the rate at which terrorists killed people in the United States before TSA existed.
 
-## The charts
+Using TSA's own **13-minute measured wait**, 2024 passenger volume burns **283 lives per year** in line. The FBI's 1980–1999 terrorism death rate is **10.25 people per year**.
 
-![Annual TSA queue cost in lifetime-equivalents](charts/queue_lifetime_equivalents.svg)
+**TSA: 27.6× more human life lost.**
 
-![Queue cost versus counterfactual deaths](charts/ratio_heatmap.svg)
+Using the **20.4-minute passenger-reported wait**, the TSA body count rises to **444 lives per year — 43.3× the terrorist death rate.**
 
-![Historical terrorism counterfactual baselines](charts/counterfactual_baselines.svg)
+Even if 9/11 is averaged into every year from 1980–2001, terrorists killed **136.05 people per year**. TSA's 13-minute line still burns **2.08× more lives**.
 
-![Sensitivity of lifetime-equivalents to checkpoint wait time](charts/wait_time_sensitivity.svg)
+## TSA lives burned each year
 
-All four SVGs are generated directly from [`data/inputs.csv`](data/inputs.csv). No numbers are manually copied into the charts.
+The year under each bar is the year of the federal wait-time measurement. Every bar applies that wait to TSA's 2024 screening volume.
 
-## Headline annualized result
+![TSA lives burned each year](charts/tsa_lives_by_year.svg)
 
-Using TSA's **904 million screenings in 2024** and CDC/NCHS **79.0-year U.S. life expectancy**, available federal wait-time measurements give these sensitivity scenarios:
+## TSA vs. terrorists
 
-| Wait-time scenario | Minutes | Person-years/year | 79-year lifetime-equivalents/year | vs. 1980–1999 deaths/year | vs. 1980–2001 incl. 9/11 |
-|---|---:|---:|---:|---:|---:|
-| GAO FY2006 average peak | 8.2 | 14,094 | 178.4 | 17.41× | 1.31× |
-| GAO FY2005 average peak | 8.9 | 15,297 | 193.6 | 18.89× | 1.42× |
-| GAO FY2004 average peak | 9.4 | 16,157 | 204.5 | 19.95× | 1.50× |
-| TSA Dec 2003–Nov 2004 average peak | 13.0 | 22,344 | 282.8 | 27.59× | 2.08× |
-| BTS traveler-reported Dec 2003–Nov 2004 | 20.4 | 35,063 | 443.8 | 43.30× | 3.26× |
+Blue is time lost waiting in TSA lines. Red is people killed by terrorists at the 1980–1999 FBI rate.
 
-These are **sensitivity scenarios**, not a claim that historical wait measurements exactly describe 2024.
+![TSA versus terrorists](charts/tsa_vs_terrorists.svg)
 
-## Counterfactual baselines
+## How many times worse is TSA?
 
-The FBI recorded **205 terrorism deaths from 1980–1999**, giving a naive continuation baseline of **10.25 deaths/year**. Adding 2000 and 2001 produces **2,993 deaths over 22 years**, or **136.05 deaths/year**. That inclusive average is overwhelmingly driven by 9/11: START reports that 85% of U.S. terrorism deaths from 1970–2013 occurred on that single day.
+Each bar divides TSA's annual body count by the FBI's **10.25 terrorist deaths per year**.
 
-These numbers are numerical historical-continuation benchmarks, **not estimates of deaths TSA actually prevented**.
+![How many times worse is TSA](charts/how_many_times_worse.svg)
 
-## Reproduce everything
+## What one extra minute costs
 
-Requires Python 3.10+ and no third-party packages.
+At 904 million screenings per year, every extra minute in line burns **21.8 full human lives per year**.
 
-```bash
-make all
-```
+![One extra TSA minute](charts/one_minute_cost.svg)
 
-That regenerates:
+## The numbers
 
-- `results/annualized_2024.csv`
-- `charts/queue_lifetime_equivalents.svg`
-- `charts/ratio_heatmap.svg`
-- `charts/counterfactual_baselines.svg`
-- `charts/wait_time_sensitivity.svg`
+| Wait measurement | Wait | Lives burned / year | vs. terrorists |
+|---|---:|---:|---:|
+| GAO 2006 | 8.2 min | 178 | 17.4× |
+| GAO 2005 | 8.9 min | 194 | 18.9× |
+| GAO 2004 | 9.4 min | 205 | 20.0× |
+| TSA 2003–04 | 13.0 min | 283 | 27.6× |
+| Passengers 2003–04 | 20.4 min | 444 | 43.3× |
 
-To verify the checked-in artifacts exactly match the source data and generator:
+## Terrorist body count
 
-```bash
-make check
-```
+FBI 1980–1999:
 
-CI performs the same regeneration-and-diff check on every push and pull request.
+- **205 deaths / 20 years = 10.25 deaths per year**
+- **327 incidents / 20 years = 16.35 incidents per year**
+
+Including 2000 and 2001:
+
+- **2,993 deaths / 22 years = 136.05 deaths per year**
+- **349 incidents / 22 years = 15.86 incidents per year**
+
+The 9/11 attack accounts for **2,783 of those deaths**. START reports that 9/11 caused **85% of all U.S. terrorism deaths from 1970–2013**.
 
 ## Formula
 
 ```text
 annual_wait_hours = annual_screenings × wait_minutes / 60
 annual_wait_years = annual_wait_hours / (24 × 365.2425)
-lifetime_equivalents = annual_wait_years / life_expectancy_years
-ratio = lifetime_equivalents / historical_terrorism_deaths_per_year
+lives_burned = annual_wait_years / 79
+ratio_vs_terrorists = lives_burned / 10.25
 ```
 
-## Causal caveat
+## Reproduce everything
 
-This currently measures **gross checkpoint queue time**, not time caused by TSA relative to the pre-2001 screening system. Airport screening existed before TSA under airline/private-contractor responsibility. Likewise, the FBI baseline covers all U.S. terrorism, much of which airport checkpoints cannot plausibly prevent. An aviation-only model plus a defensible pre-TSA screening-time baseline is the logical next refinement.
+Python 3.10+. No third-party packages.
+
+```bash
+make all
+```
+
+This regenerates the results CSV and every chart from [`data/inputs.csv`](data/inputs.csv).
+
+```bash
+make check
+```
+
+`make check` regenerates everything and fails if the committed results or charts differ. GitHub Actions runs the same check on every push and pull request.
 
 ## Primary sources
 
@@ -82,14 +94,12 @@ This currently measures **gross checkpoint queue time**, not time caused by TSA 
 - [FBI — Terrorism in the United States 1999](https://www.fbi.gov/file-repository/counterterrorism/stats-services-publications-terror_99.pdf/view)
 - [FBI — Terrorism 2000/2001](https://www.fbi.gov/file-repository/counterterrorism/stats-services-publications-terror-terror00_01.pdf/view)
 - [START — Patterns of Terrorism in the United States, 1970–2013](https://www.start.umd.edu/pubs/START_TEVUS_GTDPatternsofTerrorisminUS1970-2013_Oct2014.pdf)
-- [GAO-09-27R — pre-TSA screening structure](https://www.gao.gov/products/gao-09-27r)
-- [GAO-17-794 — limits of aviation-security effectiveness measurement](https://www.gao.gov/products/gao-17-794)
 
 ## Repository layout
 
-- `data/inputs.csv` — authoritative source values and links
-- `model.py` — shared calculations used everywhere
-- `analysis.py` — regenerates normalized CSV results
-- `generate_charts.py` — generates all SVG charts using only the Python standard library
-- `charts/` — generated visualizations embedded above
-- `docs/methodology.md` — definitions, limitations, and next steps
+- `data/inputs.csv` — source values and links
+- `model.py` — shared calculations
+- `analysis.py` — generates `results/annualized_2024.csv`
+- `generate_charts.py` — generates every SVG using only Python's standard library
+- `charts/` — generated graphs embedded above
+- `docs/methodology.md` — formulas and source definitions
