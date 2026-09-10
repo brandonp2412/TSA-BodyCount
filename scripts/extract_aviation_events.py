@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import csv
 import hashlib
+import re
 import sys
 from pathlib import Path
 
@@ -27,6 +28,10 @@ AVIATION_WORDS = {
     "boeing",
     "airport",
 }
+AVIATION_WORD_PATTERN = re.compile(
+    r"\b(?:" + "|".join(re.escape(word) for word in sorted(AVIATION_WORDS)) + r")\b",
+    re.IGNORECASE,
+)
 
 OUTPUT_FIELDS = [
     "eventid",
@@ -75,8 +80,8 @@ def aviation_hijacking(row: dict[str, str], attack_types: list[str]) -> bool:
             "corp3",
             "target3",
         )
-    ).lower()
-    return any(word in text for word in AVIATION_WORDS)
+    )
+    return AVIATION_WORD_PATTERN.search(text) is not None
 
 
 def selected_row(row: dict[str, str]) -> dict[str, str] | None:
